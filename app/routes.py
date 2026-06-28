@@ -138,6 +138,7 @@ def blog_detail(slug):
 def contact():
     errors = {}
     success = False
+    name = ""
     
     if request.method == 'POST':
         form = ContactForm(request.form)
@@ -185,12 +186,16 @@ def contact():
         title="Contact Our Enterprise AI Team",
         description="Start your AI journey. Message our team for custom implementations or pilot assessments."
     )
-    return render_template('contact.html', errors=errors, success=success, seo=seo)
+    return render_template('contact.html', errors=errors, success=success, name=name, seo=seo)
 
 @main_bp.route('/book-consultation', methods=['GET', 'POST'])
 def book_consultation():
     errors = {}
     success = False
+    name = ""
+    date = ""
+    time = ""
+    code = ""
     
     if request.method == 'POST':
         form = ConsultationForm(request.form)
@@ -203,6 +208,9 @@ def book_consultation():
             ai_interest = request.form.get('ai_interest')
             date = request.form.get('date')
             time = request.form.get('time')
+            
+            import random
+            code = f"ALT-{random.randint(1000, 9999)}"
             
             # 1. Dispatch scoping call alert to administrator
             admin_subject = f"New Discovery Consultation Requested by {company}"
@@ -237,7 +245,7 @@ def book_consultation():
             send_notification_email(visitor_subject, visitor_html, to_email=email)
 
             if request.headers.get('HX-Request'):
-                return render_template('components/booking-success.html', name=name, date=date, time=time)
+                return render_template('components/booking-success.html', name=name, date=date, time=time, code=code)
             flash("Your discovery consultation has been requested successfully!", "success")
         else:
             errors = form.errors
@@ -248,7 +256,7 @@ def book_consultation():
         title="Schedule a Discovery Consultation",
         description="Book a 30-minute technical discovery session to review schema options and custom agent pipelines."
     )
-    return render_template('book-consultation.html', errors=errors, success=success, seo=seo)
+    return render_template('book-consultation.html', errors=errors, success=success, name=name, date=date, time=time, code=code, seo=seo)
 
 @main_bp.route('/privacy')
 def privacy():
