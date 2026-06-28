@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-display">Case Study Detail</span>
+    <h1 class="hero-title text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-none">
+      {{ cs.title }}
+    </h1>
+    <p class="hero-desc text-lg text-indigo-600 dark:text-indigo-400 font-semibold max-w-xl mx-auto font-display">
+      {{ cs.metric }}
+    </p>
+  </div>
+</section>
+
+<!-- Content split -->
+<section class="py-16 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <!-- Copy details (Left Split) -->
+      <div class="lg:col-span-8 space-y-12">
+        
+        <!-- Challenge -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">The Challenge</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ cs.challenge }}</p>
+        </div>
+
+        <!-- Solution -->
+        <div class="space-y-4 pt-4 border-t border-gray-150 dark:border-gray-900/50">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">The Altimet AI Solution</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ cs.solution }}</p>
+        </div>
+
+        <!-- Architecture -->
+        <div class="space-y-4 pt-4 border-t border-gray-150 dark:border-gray-900/50">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">System Architecture</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ cs.architecture_summary }}</p>
+        </div>
+
+        <!-- Business Impact -->
+        <div class="space-y-6 pt-4 border-t border-gray-150 dark:border-gray-900/50">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Measurable Impact</h3>
+          <div class="grid grid-cols-1 gap-4">
+            {% for imp in cs.impact %}
+            <div class="flex items-start space-x-3 p-4 rounded-xl bg-green-500/5 dark:bg-green-500/10 border border-green-500/10">
+              <div class="p-1 rounded bg-green-500/10 text-green-500 mt-0.5">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-semibold">{{ imp }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech Stack sidebar (Right Split) -->
+      <div class="lg:col-span-4 space-y-8">
+        
+        <!-- Profile Widget -->
+        <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-4">
+          <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider font-display">Client Profile</h4>
+          <div>
+            <p class="text-xs text-gray-400">Enterprise Entity</p>
+            <p class="text-sm font-bold text-gray-900 dark:text-white font-display mt-0.5">{{ cs.client }}</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-400">Target Outcome</p>
+            <p class="text-sm font-bold text-green-500 font-display mt-0.5">{{ cs.metric }}</p>
+          </div>
+        </div>
+
+        <!-- Tech Stack Widget -->
+        <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-4">
+          <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider font-display">Integration Stack</h4>
+          <div class="flex flex-wrap gap-2">
+            {% for tech in cs.tech_stack %}
+            <span class="text-xs font-semibold font-mono px-3 py-1 rounded bg-gray-100 dark:bg-gray-850 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-800">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Block -->
+{% include 'components/cta.html' %}
+
+{% endblock %}

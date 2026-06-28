@@ -1,0 +1,98 @@
+<!-- app/templates/components/navbar.html -->
+<header class="fixed top-0 left-0 w-full z-50 glass-nav py-4 transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-12">
+      
+      <!-- Logo positioning -->
+      <div class="flex-shrink-0 flex items-center">
+        <a href="/" class="flex items-center space-x-2">
+          <span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white font-display">
+            Altimet<span class="text-indigo-600 dark:text-indigo-400">AI</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex space-x-8 text-sm font-medium">
+        <a href="/services" class="nav-link-item text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Services</a>
+        <a href="/industries" class="nav-link-item text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Industries</a>
+        <a href="/case-studies" class="nav-link-item text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Case Studies</a>
+        <a href="/blog" class="nav-link-item text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Resources</a>
+        <a href="/about" class="nav-link-item text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Company</a>
+        <a href="/contact" class="nav-link-item text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Access CTAs (Theme, Search, Consultation) -->
+      <div class="hidden md:flex items-center space-x-4">
+        
+        <!-- Search Trigger -->
+        <button class="open-palette-trigger p-2 text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none" title="Search (Ctrl+K)">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button id="theme-toggle" class="p-2 text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none" title="Toggle Theme">
+          <!-- Sun Icon (Show in dark) -->
+          <svg class="sun-icon h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+          </svg>
+          <!-- Moon Icon (Show in light) -->
+          <svg class="moon-icon h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+        </button>
+
+        <!-- Book Consultation CTA -->
+        <a href="/book-consultation" class="magnetic-btn px-4 py-2 text-xs font-semibold tracking-wide uppercase bg-indigo-600 hover:bg-indigo-700 text-white rounded-md transition duration-300">
+          Book Consultation
+        </a>
+      </div>
+
+      <!-- Mobile Menu Buttons -->
+      <div class="flex items-center space-x-3 md:hidden">
+        
+        <!-- Search Trigger Mobile -->
+        <button class="open-palette-trigger p-2 text-gray-500 dark:text-gray-400" title="Search">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+
+        <button id="mobile-menu-btn" class="p-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 focus:outline-none" aria-label="Toggle Mobile Menu">
+          <!-- Hamburger open -->
+          <svg class="menu-icon-open h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <!-- Close cross -->
+          <svg class="menu-icon-close h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Panel -->
+  <div id="mobile-menu" class="hidden md:hidden glass-nav absolute top-full left-0 w-full border-b border-gray-200 dark:border-gray-800 py-4 px-6 space-y-3 z-40">
+    <a href="/services" class="block py-2 text-base font-semibold text-gray-700 dark:text-gray-200">Services</a>
+    <a href="/industries" class="block py-2 text-base font-semibold text-gray-700 dark:text-gray-200">Industries</a>
+    <a href="/case-studies" class="block py-2 text-base font-semibold text-gray-700 dark:text-gray-200">Case Studies</a>
+    <a href="/blog" class="block py-2 text-base font-semibold text-gray-700 dark:text-gray-200">Resources</a>
+    <a href="/about" class="block py-2 text-base font-semibold text-gray-700 dark:text-gray-200">Company</a>
+    <a href="/contact" class="block py-2 text-base font-semibold text-gray-700 dark:text-gray-200">Contact</a>
+    <hr class="border-gray-200 dark:border-gray-800 my-2">
+    <div class="flex items-center justify-between pt-2 pb-4">
+      <span class="text-sm font-medium text-gray-500 dark:text-gray-400">Dark Mode</span>
+      <!-- Switch handled implicitly via theme toggle id if triggered -->
+      <button onclick="document.getElementById('theme-toggle').click();" class="p-2 border border-gray-200 dark:border-gray-700 rounded-md text-gray-600 dark:text-gray-300">
+        Toggle Theme
+      </button>
+    </div>
+    <a href="/book-consultation" class="block w-full text-center py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md font-semibold transition">
+      Book Consultation
+    </a>
+  </div>
+</header>

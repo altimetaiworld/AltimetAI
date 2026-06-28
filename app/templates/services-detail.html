@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-display">Service Details</span>
+    <h1 class="hero-title text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-none">
+      {{ service.name }}
+    </h1>
+    <p class="hero-desc text-lg text-indigo-600 dark:text-indigo-400 font-semibold max-w-xl mx-auto font-display">
+      {{ service.tagline }}
+    </p>
+  </div>
+</section>
+
+<!-- Main Details Layout split -->
+<section class="py-16 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <!-- Copy Details (Left Split) -->
+      <div class="lg:col-span-8 space-y-12">
+        
+        <!-- Overview -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Overview</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ service.overview }}</p>
+        </div>
+
+        <!-- Business Challenges we solve -->
+        <div class="space-y-6 pt-4 border-t border-gray-150 dark:border-gray-900/50">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Primary Challenges Solved</h3>
+          <div class="grid grid-cols-1 gap-4">
+            {% for prob in service.business_problems %}
+            <div class="flex items-start space-x-3 p-4 rounded-xl bg-gray-50 dark:bg-gray-900/30 border border-gray-150 dark:border-gray-900/50">
+              <div class="p-1 rounded bg-red-500/10 text-red-500 mt-0.5">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+              </div>
+              <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ prob }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Our Solution details -->
+        <div class="space-y-4 pt-4 border-t border-gray-150 dark:border-gray-900/50">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">The Altimet AI Solution</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ service.solution }}</p>
+        </div>
+
+        <!-- Pipeline Architecture Steps -->
+        <div class="space-y-6 pt-4 border-t border-gray-150 dark:border-gray-900/50">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Technical Pipeline Flow</h3>
+          <div class="relative border-l border-indigo-100 dark:border-indigo-950 pl-6 ml-3 space-y-8">
+            {% for step in service.architecture_steps %}
+            <div class="relative">
+              <span class="absolute -left-[31px] top-1.5 flex h-4.5 w-4.5 rounded-full bg-indigo-600 border-4 border-white dark:border-brand-dark"></span>
+              <h5 class="text-base font-bold text-gray-900 dark:text-white font-display">{{ step.title }}</h5>
+              <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">{{ step.desc }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sidebar metrics and metadata (Right Split) -->
+      <div class="lg:col-span-4 space-y-8">
+        
+        <!-- Outcomes Stats Widget -->
+        <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-6">
+          <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider font-display">Quantifiable Metrics</h4>
+          <div class="space-y-6">
+            {% for b in service.benefits %}
+            <div class="pb-4 border-b border-gray-150 dark:border-gray-900/50 last:border-0 last:pb-0">
+              <p class="text-3xl font-extrabold text-indigo-600 dark:text-indigo-400 font-display stat-counter-val" data-target="{{ b.value }}">{{ b.value }}</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">{{ b.label }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Timeline widget -->
+        <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-4">
+          <h4 class="text-sm font-bold text-gray-400 uppercase tracking-wider font-display">Delivery Timeline</h4>
+          <div class="space-y-3">
+            {% for ph in service.timeline %}
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-semibold text-gray-700 dark:text-gray-300 font-display">{{ ph.phase }}</span>
+              <span class="text-gray-400 font-mono">{{ ph.duration }}</span>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQs Section -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900/30 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-xl mx-auto mb-10">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Security & Latency FAQs</h3>
+      <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Common operational concerns for enterprise deployments.</p>
+    </div>
+    {% include 'components/faq.html' %}
+  </div>
+</section>
+
+<!-- Final CTA Block -->
+{% include 'components/cta.html' %}
+
+{% endblock %}

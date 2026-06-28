@@ -1,0 +1,25 @@
+<!-- app/templates/components/cta.html -->
+<section class="py-20 relative overflow-hidden transition-colors duration-300">
+  
+  <!-- Blur backdrop -->
+  <div class="absolute inset-0 bg-indigo-900/5 dark:bg-indigo-950/20 z-0"></div>
+  <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-purple-500/10 rounded-full filter blur-[100px] animate-blob-1"></div>
+  <div class="absolute -top-20 -right-20 w-80 h-80 bg-indigo-500/10 rounded-full filter blur-[100px] animate-blob-2"></div>
+  
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8 reveal-on-scroll">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+      Ready to Implement <span class="text-gradient">Production-Grade AI</span>?
+    </h2>
+    <p class="text-lg text-gray-500 dark:text-gray-400 max-w-xl mx-auto leading-relaxed">
+      Schedule a technical discovery session with our engineering team to review model schemas, latency specs, and VPC safety deployment strategies.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+      <a href="/book-consultation" class="magnetic-btn w-full sm:w-auto px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition text-center shadow-lg hover:shadow-indigo-500/10">
+        Book Discovery Call
+      </a>
+      <a href="/contact" class="magnetic-btn w-full sm:w-auto px-8 py-4 glass-panel hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg font-semibold transition text-center">
+        Contact Engineering
+      </a>
+    </div>
+  </div>
+</section>

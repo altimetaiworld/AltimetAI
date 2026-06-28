@@ -1,0 +1,25 @@
+<!-- app/templates/components/faq.html -->
+<div class="space-y-4 max-w-4xl mx-auto">
+  {% for item in faqs %}
+  <div class="faq-accordion-item border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden glass-panel bg-white/40 dark:bg-gray-950/40 transition">
+    
+    <!-- Accordion Header -->
+    <button class="faq-accordion-header w-full p-5 flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+      <span class="font-bold text-sm sm:text-base text-gray-900 dark:text-white font-display">{{ item.q }}</span>
+      <span class="faq-accordion-icon ml-4 flex-shrink-0 text-indigo-500 transition-transform duration-300">
+        <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m-8-8h16"/>
+        </svg>
+      </span>
+    </button>
+
+    <!-- Accordion Content -->
+    <div class="faq-accordion-content transition-all duration-300">
+      <div class="p-5 pt-0 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-100 dark:border-gray-900/50 mt-2 leading-relaxed">
+        {{ item.a }}
+      </div>
+    </div>
+
+  </div>
+  {% endfor %}
+</div>

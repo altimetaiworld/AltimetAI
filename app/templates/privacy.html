@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white font-display">
+      Privacy Policy
+    </h1>
+    <p class="text-xs text-gray-500 mt-2 font-mono">Last updated: June 28, 2026</p>
+  </div>
+</section>
+
+<section class="py-12 transition-colors duration-300">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-8 lg:p-12 bg-white dark:bg-gray-950/60 shadow-xl space-y-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-sans">
+      
+      <h3 class="text-lg font-bold text-gray-900 dark:text-white font-display">1. Data Boundaries and VPC Isolation</h3>
+      <p>
+        Altimet AI designs and deploys custom systems. All production systems are built to reside inside the client's Virtual Private Cloud (VPC) boundary. No query records, document files, schema metadata, or model logs are collected or transmitted to external servers.
+      </p>
+
+      <h3 class="text-lg font-bold text-gray-900 dark:text-white font-display">2. Zero Data Retention Policies</h3>
+      <p>
+        When routing queries to model providers (such as OpenAI, Anthropic, or custom private servers), we configure secure enterprise API nodes with strict Zero Data Retention (ZDR) options. Under no circumstances is your data utilized for model fine-tuning or secondary training runs.
+      </p>
+
+      <h3 class="text-lg font-bold text-gray-900 dark:text-white font-display">3. Security Controls (SOC 2 Type II Alignment)</h3>
+      <p>
+        We enforce administrative, logical, and physical security measures designed to align with SOC 2 guidelines. Database schema connections are handled exclusively via secure read-only profiles with encryption at rest and in transit.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+<!-- app/templates/components/contact-form-partial.html -->
+<form id="contact-form" hx-post="/contact" hx-swap="outerHTML" class="space-y-6">
+  
+  <!-- Name field -->
+  <div>
+    <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
+    <input type="text" id="name" name="name" value="{{ values.get('name', '') if values else '' }}" class="form-input {% if errors.get('name') %}border-red-500{% endif %}" placeholder="e.g. Sarah Jenkins">
+    {% if errors.get('name') %}
+      <p class="text-xs text-red-500 mt-1">{{ errors.get('name') }}</p>
+    {% endif %}
+  </div>
+
+  <!-- Email field -->
+  <div>
+    <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Corporate Email</label>
+    <input type="email" id="email" name="email" value="{{ values.get('email', '') if values else '' }}" class="form-input {% if errors.get('email') %}border-red-500{% endif %}" placeholder="sjenkins@company.com">
+    {% if errors.get('email') %}
+      <p class="text-xs text-red-500 mt-1">{{ errors.get('email') }}</p>
+    {% endif %}
+  </div>
+
+  <!-- Company field -->
+  <div>
+    <label for="company" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Company Name</label>
+    <input type="text" id="company" name="company" value="{{ values.get('company', '') if values else '' }}" class="form-input {% if errors.get('company') %}border-red-500{% endif %}" placeholder="e.g. Apex Global">
+    {% if errors.get('company') %}
+      <p class="text-xs text-red-500 mt-1">{{ errors.get('company') }}</p>
+    {% endif %}
+  </div>
+
+  <!-- Message field -->
+  <div>
+    <label for="message" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Project Details</label>
+    <textarea id="message" name="message" rows="4" class="form-input {% if errors.get('message') %}border-red-500{% endif %}" placeholder="Outline your requirements or challenges...">{{ values.get('message', '') if values else '' }}</textarea>
+    {% if errors.get('message') %}
+      <p class="text-xs text-red-500 mt-1">{{ errors.get('message') }}</p>
+    {% endif %}
+  </div>
+
+  <button type="submit" class="magnetic-btn w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition shadow-md hover:shadow-indigo-500/10">
+    Send Message
+  </button>
+</form>

@@ -1,0 +1,94 @@
+<!-- app/templates/components/booking-form-partial.html -->
+<form id="booking-form" hx-post="/book-consultation" hx-swap="outerHTML" class="space-y-6">
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <!-- Name field -->
+    <div>
+      <label for="name" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
+      <input type="text" id="name" name="name" value="{{ values.get('name', '') if values else '' }}" class="form-input {% if errors.get('name') %}border-red-500{% endif %}" placeholder="e.g. Marcus Thorne">
+      {% if errors.get('name') %}
+        <p class="text-xs text-red-500 mt-1">{{ errors.get('name') }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Email field -->
+    <div>
+      <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Corporate Email</label>
+      <input type="email" id="email" name="email" value="{{ values.get('email', '') if values else '' }}" class="form-input {% if errors.get('email') %}border-red-500{% endif %}" placeholder="mthorne@company.com">
+      {% if errors.get('email') %}
+        <p class="text-xs text-red-500 mt-1">{{ errors.get('email') }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <!-- Company field -->
+    <div>
+      <label for="company" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Company Name</label>
+      <input type="text" id="company" name="company" value="{{ values.get('company', '') if values else '' }}" class="form-input {% if errors.get('company') %}border-red-500{% endif %}" placeholder="e.g. Vanguard Logistics">
+      {% if errors.get('company') %}
+        <p class="text-xs text-red-500 mt-1">{{ errors.get('company') }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Company Size -->
+    <div>
+      <label for="company_size" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Company Size</label>
+      <select id="company_size" name="company_size" class="form-input {% if errors.get('company_size') %}border-red-500{% endif %}">
+        <option value="">Select size...</option>
+        <option value="1-50" {% if values and values.get('company_size') == '1-50' %}selected{% endif %}>Under 50 employees</option>
+        <option value="50-250" {% if values and values.get('company_size') == '50-250' %}selected{% endif %}>50 - 250 employees</option>
+        <option value="250-1000" {% if values and values.get('company_size') == '250-1000' %}selected{% endif %}>250 - 1000 employees</option>
+        <option value="1000+" {% if values and values.get('company_size') == '1000+' %}selected{% endif %}>Over 1000 employees</option>
+      </select>
+      {% if errors.get('company_size') %}
+        <p class="text-xs text-red-500 mt-1">{{ errors.get('company_size') }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- AI Interest field -->
+  <div>
+    <label for="ai_interest" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Primary Area of Interest</label>
+    <select id="ai_interest" name="ai_interest" class="form-input {% if errors.get('ai_interest') %}border-red-500{% endif %}">
+      <option value="">Select interest...</option>
+      <option value="data-copilot" {% if values and values.get('ai_interest') == 'data-copilot' %}selected{% endif %}>AI Data Copilot (BI, SQL)</option>
+      <option value="knowledge-copilot" {% if values and values.get('ai_interest') == 'knowledge-copilot' %}selected{% endif %}>Knowledge Copilot (Semantic Search, RAG)</option>
+      <option value="agent-studio" {% if values and values.get('ai_interest') == 'agent-studio' %}selected{% endif %}>AI Agent systems (LangGraph)</option>
+      <option value="custom" {% if values and values.get('ai_interest') == 'custom' %}selected{% endif %}>Custom Infrastructure & Fine-Tuning</option>
+    </select>
+    {% if errors.get('ai_interest') %}
+      <p class="text-xs text-red-500 mt-1">{{ errors.get('ai_interest') }}</p>
+    {% endif %}
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <!-- Date picker -->
+    <div>
+      <label for="date" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Preferred Date</label>
+      <input type="date" id="date" name="date" value="{{ values.get('date', '') if values else '' }}" class="form-input {% if errors.get('date') %}border-red-500{% endif %}">
+      {% if errors.get('date') %}
+        <p class="text-xs text-red-500 mt-1">{{ errors.get('date') }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Time slots selector -->
+    <div>
+      <label for="time" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Preferred Time Slot (EST)</label>
+      <select id="time" name="time" class="form-input {% if errors.get('time') %}border-red-500{% endif %}">
+        <option value="">Select time...</option>
+        <option value="09:00 AM" {% if values and values.get('time') == '09:00 AM' %}selected{% endif %}>09:00 AM - 10:00 AM</option>
+        <option value="11:00 AM" {% if values and values.get('time') == '11:00 AM' %}selected{% endif %}>11:00 AM - 12:00 PM</option>
+        <option value="02:00 PM" {% if values and values.get('time') == '02:00 PM' %}selected{% endif %}>02:00 PM - 03:00 PM</option>
+        <option value="04:00 PM" {% if values and values.get('time') == '04:00 PM' %}selected{% endif %}>04:00 PM - 05:00 PM</option>
+      </select>
+      {% if errors.get('time') %}
+        <p class="text-xs text-red-500 mt-1">{{ errors.get('time') }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <button type="submit" class="magnetic-btn w-full py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold transition shadow-md hover:shadow-indigo-500/10">
+    Confirm Discovery Session
+  </button>
+</form>

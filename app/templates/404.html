@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="min-h-screen flex items-center justify-center grid-bg-lines transition-colors duration-300">
+  <div class="max-w-md mx-auto px-4 text-center space-y-6 reveal-on-scroll">
+    <div class="text-7xl font-extrabold text-indigo-650 font-display tracking-tight text-gradient">404</div>
+    <h2 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Path Not Found</h2>
+    <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+      {% if error_msg %}
+        {{ error_msg }}
+      {% else %}
+        The server encountered a routing issue. The resource you requested has shifted or does not exist.
+      {% endif %}
+    </p>
+    <div>
+      <a href="/" class="magnetic-btn px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold text-xs transition shadow-md">
+        Return to Dashboard
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

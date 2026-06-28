@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-display">Proven ROI</span>
+    <h1 class="hero-title text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-none">
+      Enterprise <span class="text-gradient">Case Studies</span>
+    </h1>
+    <p class="hero-desc text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+      Read detailed walkthroughs of how Altimet AI partners with global organizations to build custom data models and workflows.
+    </p>
+  </div>
+</section>
+
+<!-- Case Studies List Grid -->
+<section class="py-16 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger-cards-grid">
+      
+      {% for cs in case_studies %}
+      <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-8 hover-card bg-white dark:bg-gray-950 stagger-card-item flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex justify-between items-center text-xs text-gray-400 border-b border-gray-100 dark:border-gray-900/50 pb-2">
+            <span>Client: <strong class="text-gray-700 dark:text-gray-250 font-display">{{ cs.client }}</strong></span>
+            <span class="text-green-500 font-bold font-mono">{{ cs.metric }}</span>
+          </div>
+          <h2 class="text-2xl font-bold text-gray-900 dark:text-white font-display mt-4">{{ cs.title }}</h2>
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{{ cs.summary }}</p>
+        </div>
+        <div class="mt-8 pt-4 border-t border-gray-150 dark:border-gray-900/50 flex justify-between items-center">
+          <div class="flex flex-wrap gap-1.5 max-w-[60%]">
+            {% for tech in cs.tech_stack[:3] %}
+              <span class="text-[9px] font-bold font-mono px-2 py-0.5 rounded bg-gray-100 dark:bg-gray-850 text-gray-500 dark:text-gray-400">{{ tech }}</span>
+            {% endfor %}
+          </div>
+          <a href="/case-studies/{{ cs.slug }}" class="px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold transition">
+            Read ROI Walkthrough
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Block -->
+{% include 'components/cta.html' %}
+
+{% endblock %}

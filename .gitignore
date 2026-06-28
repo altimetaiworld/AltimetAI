@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# Local Environment & Configurations
+.env
+
+# Python compilation Caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local Logs & Inquiries
+logs/
+instance/
+
+# IDE settings
+.vscode/
+.idea/
+.gemini/

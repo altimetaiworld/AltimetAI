@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-display">Contact Us</span>
+    <h1 class="hero-title text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-none">
+      Connect with <span class="text-gradient">Our Engineering Team</span>
+    </h1>
+    <p class="hero-desc text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+      Message our partners directly to schedule scoping reviews, schema audits, or pilot pricing estimates.
+    </p>
+  </div>
+</section>
+
+<!-- Form & Info Split -->
+<section class="py-16 transition-colors duration-300">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-start">
+      
+      <!-- Contact Form Box (Left Split) -->
+      <div class="md:col-span-7 glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-950/60 shadow-xl">
+        {% if success %}
+          {% include 'components/contact-success.html' %}
+        {% else %}
+          {% include 'components/contact-form-partial.html' %}
+        {% endif %}
+      </div>
+
+      <!-- Office & Social Details (Right Split) -->
+      <div class="md:col-span-5 space-y-8">
+        
+        <!-- Technical scoping notice -->
+        <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-3">
+          <h4 class="text-sm font-bold text-gray-900 dark:text-white font-display">Engineering Scoping Audit</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            All messages are directly routed to our Principal AI Architects, not sales development representatives. 
+            We review database outlines and document models under NDA bounds.
+          </p>
+        </div>
+
+        <!-- Coordinates -->
+        <div class="space-y-6">
+          <h4 class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider font-display">Direct Coordinates</h4>
+          
+          <!-- Email -->
+          <div class="flex items-center space-x-3 text-sm">
+            <div class="p-2 rounded bg-indigo-500/10 text-indigo-500">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <a href="mailto:altimetaiworld@gmail.com" class="font-semibold text-gray-800 dark:text-gray-200 hover:text-indigo-650 transition">altimetaiworld@gmail.com</a>
+          </div>
+
+          <!-- Headquarters -->
+          <div class="flex items-start space-x-3 text-sm">
+            <div class="p-2 rounded bg-indigo-500/10 text-indigo-500 mt-0.5">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-805 dark:text-gray-200 leading-none">India</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Pune, Maharashtra</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}

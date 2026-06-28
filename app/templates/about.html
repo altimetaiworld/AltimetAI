@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-display">About Altimet AI</span>
+    <h1 class="hero-title text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-none">
+      Enterprise AI <span class="text-gradient">Consulting & Products</span>
+    </h1>
+    <p class="hero-desc text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+      Helping organizations securely translate internal documents, databases, and pipelines into intelligent operational engines.
+    </p>
+  </div>
+</section>
+
+<!-- Mission & Structure Details -->
+<section class="py-16 transition-colors duration-300">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center split-reveal-trigger">
+      
+      <!-- Copy details -->
+      <div class="md:col-span-7 space-y-6 split-reveal-left">
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Our Mission</h3>
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+          At Altimet AI, we believe enterprise intelligence should not rely on brittle scripts or insecure public APIs. 
+          Our mission is to build robust, production-grade systems that run inside your virtual cloud perimeters. 
+          By combining custom fine-tuned open models with multi-agent orchestration frameworks like LangGraph, we deliver systems that automate complex operational paths with absolute data safety.
+        </p>
+        <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+          We operate as a dual-capability firm: providing bespoke high-end engineering consulting to map databases and workflows, 
+          while delivering ready-to-run enterprise product suites like <strong>Altimet Data Copilot</strong>, <strong>Altimet Knowledge Copilot</strong>, and <strong>Altimet Agent Studio</strong>.
+        </p>
+      </div>
+
+      <!-- Stats / Summary highlights (Right side) -->
+      <div class="md:col-span-5 split-reveal-right">
+        <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-6">
+          <div>
+            <span class="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-green-500/10 text-green-500">SOC 2 COMPLIANT</span>
+            <h5 class="text-base font-bold text-gray-900 dark:text-white font-display mt-2">Zero-Retention APIs</h5>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">We configure models to ensure your proprietary training data never exits your secure environment.</p>
+          </div>
+          <div>
+            <span class="text-[10px] font-bold font-mono px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-500">PRODUCTION READY</span>
+            <h5 class="text-base font-bold text-gray-900 dark:text-white font-display mt-2">Code-First Hand-off</h5>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">All consulting engagements deliver complete Python source repositories, unit testing suites, and container configs.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Product Suites Section -->
+<section class="py-16 bg-gray-50 dark:bg-gray-900/30 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+      <span class="text-xs font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 font-display">Our Suite</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white mt-1">Core Product Offerings</h2>
+      <p class="mt-4 text-lg text-gray-500 dark:text-gray-400">Standardized, deployable codebases that integrate directly with enterprise directories and databases.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-cards-grid">
+      
+      <!-- Product 1 -->
+      <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-8 bg-white dark:bg-gray-950 hover-card stagger-card-item flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-500 inline-block">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.58 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.58 4 8 4s8-1.79 8-4M4 7c0-2.21 3.58-4 8-4s8 1.79 8 4m0 5c0 2.21-3.58 4-8 4s-8-1.79-8-4"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white font-display">Altimet Data Copilot</h3>
+          <p class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold uppercase font-display">BI & SQL translation engine</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            Translate conversational query constraints to secure sandboxed SQL runs, giving analysts and executives visual charts in milliseconds.
+          </p>
+        </div>
+        <a href="/services/ai-data-copilot" class="mt-6 inline-flex items-center text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
+          Learn More
+          <svg class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-8 bg-white dark:bg-gray-950 hover-card stagger-card-item flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-500 inline-block">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white font-display">Altimet Knowledge Copilot</h3>
+          <p class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold uppercase font-display">Dense semantic vector search</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            Query dispersed Notion wikis, PDFs, contracts, and codes. Our search respects dynamic ACL file boundaries, showing complete citations.
+          </p>
+        </div>
+        <a href="/services/knowledge-copilot" class="mt-6 inline-flex items-center text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
+          Learn More
+          <svg class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-8 bg-white dark:bg-gray-950 hover-card stagger-card-item flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-500 inline-block">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white font-display">Altimet Agent Studio</h3>
+          <p class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold uppercase font-display">LangGraph multi-agent coordination</p>
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+            Construct stateful operations graphs where specialized agents edit codes, verify fields, query databases, and request human-in-the-loop signoff.
+          </p>
+        </div>
+        <a href="/services/ai-agents" class="mt-6 inline-flex items-center text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300">
+          Learn More
+          <svg class="h-3 w-3 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Block -->
+{% include 'components/cta.html' %}
+
+{% endblock %}

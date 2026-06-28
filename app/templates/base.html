@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Dynamic SEO & Meta Tags -->
+  <title>{{ seo.title }}</title>
+  <meta name="description" content="{{ seo.description }}">
+  <link rel="canonical" href="{{ seo.url }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ seo.url }}">
+  <meta property="og:title" content="{{ seo.title }}">
+  <meta property="og:description" content="{{ seo.description }}">
+  <meta property="og:image" content="{{ seo.image }}">
+  <meta property="og:site_name" content="{{ seo.site_name }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="{{ seo.twitter_card }}">
+  <meta property="twitter:url" content="{{ seo.url }}">
+  <meta property="twitter:title" content="{{ seo.title }}">
+  <meta property="twitter:description" content="{{ seo.description }}">
+  <meta property="twitter:image" content="{{ seo.image }}">
+
+  <!-- Structured Data JSON-LD -->
+  {% if schema_org %}
+  <script type="application/ld+json">
+    {{ schema_org | safe }}
+  </script>
+  {% endif %}
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0B1220',
+              slate: '#111827',
+              accent: '#4F46E5',
+              success: '#10B981',
+              warning: '#F59E0B'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space+Grotesk', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white dark:bg-brand-dark text-gray-700 dark:text-gray-300 antialiased">
+
+  <!-- Noise Overlay for premium texture -->
+  <div class="noise-overlay"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress"></div>
+
+  <!-- Page Loader Overlay -->
+  <div id="loader-overlay">
+    <div class="loader-logo-ring"></div>
+    <span class="text-white font-display text-sm tracking-widest uppercase mt-6">Altimet AI</span>
+  </div>
+
+  <!-- Custom Cursor follower -->
+  <div class="custom-cursor"></div>
+  <div class="custom-cursor-glow"></div>
+
+  <!-- Navbar Navigation -->
+  {% include 'components/navbar.html' %}
+
+  <!-- Toast/Flash Notification Messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="fixed top-24 right-6 z-[9999] space-y-3">
+        {% for category, message in messages %}
+          <div class="toast-alert flex items-center p-4 rounded-xl shadow-xl glass-panel border-green-500/20 bg-green-50/90 dark:bg-green-950/80 text-green-700 dark:text-green-300 max-w-sm transition-all duration-300 transform scale-100">
+            <svg class="h-5 w-5 mr-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+            <span class="text-xs font-semibold font-display">{{ message }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <!-- Main Body Content -->
+  <main class="min-h-screen">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Command Palette (Ctrl+K overlay) -->
+  <div id="command-palette" class="hidden opacity-0 pointer-events-none fixed inset-0 z-[100000] bg-gray-950/60 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="w-full max-w-xl glass-panel bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[500px]">
+      
+      <!-- Palette Header -->
+      <div class="flex items-center justify-between border-b border-gray-100 dark:border-gray-850 p-4">
+        <div class="flex items-center space-x-3 w-full">
+          <svg class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+          <input type="text" id="command-palette-input" class="w-full bg-transparent text-sm text-gray-900 dark:text-white outline-none placeholder-gray-400" placeholder="Search services, industries, case studies, blogs...">
+        </div>
+        <button id="close-palette" class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-400 transition">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Palette Results -->
+      <div id="command-palette-results" class="flex-1 overflow-y-auto p-4 max-h-[350px]">
+        <!-- Search results injected here -->
+      </div>
+      
+      <!-- Palette Footer -->
+      <div class="border-t border-gray-150 dark:border-gray-850 p-3 bg-gray-50 dark:bg-gray-900/60 flex justify-between items-center text-[10px] text-gray-400 font-mono">
+        <span>Use <kbd class="px-1.5 py-0.5 bg-gray-200 dark:bg-gray-800 rounded">ESC</kbd> to close</span>
+        <span>Search powered by Altimet AI</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Cookie Consent Banner -->
+  <div id="cookie-banner" class="fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50 transform translate-y-full transition-transform duration-500 ease-out">
+    <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-5 bg-white dark:bg-gray-950 flex flex-col space-y-4">
+      <div class="flex items-start space-x-3">
+        <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-500 mt-0.5">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-gray-900 dark:text-white font-display">Enterprise Data Privacy</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-relaxed">
+            We use secure cookies to optimize performance and ensure smooth application layouts. We do not sell or monetize metadata.
+          </p>
+        </div>
+      </div>
+      <div class="flex justify-end space-x-3">
+        <a href="/privacy" class="text-xs font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition flex items-center">Privacy Policy</a>
+        <button id="accept-cookies" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-semibold transition">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 p-3 rounded-full bg-indigo-600 text-white shadow-lg opacity-0 pointer-events-none translate-y-4 transition duration-300 z-50 hover:bg-indigo-700" title="Back to top">
+    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
+
+  <!-- Footer Layout -->
+  {% include 'components/footer.html' %}
+
+  <!-- Core Scripts CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+  
+  <!-- Custom Orchestrator Scripts -->
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/navigation.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/counters.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/faq.js') }}"></script>
+</body>
+</html>
