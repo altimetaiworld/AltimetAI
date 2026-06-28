@@ -111,3 +111,14 @@
 .dark #cookie-banner {
   box-shadow: 0 -10px 40px -10px rgba(0, 0, 0, 0.5);
 }
+
+/* HTMX Loading State Indicators */
+.htmx-indicator {
+  display: none;
+}
+.htmx-request .htmx-indicator {
+  display: inline-flex !important;
+}
+.htmx-request .htmx-hide-on-request {
+  display: none !important;
+}
