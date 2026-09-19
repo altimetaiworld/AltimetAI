@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 font-display">
+      Workflow Specification
+    </div>
+    <h1 class="hero-title text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight font-display">
+      {{ cs.title }}
+    </h1>
+    <p class="hero-desc text-base sm:text-lg text-blue-600 dark:text-blue-400 font-semibold max-w-xl mx-auto font-display">
+      {{ cs.metric }}
+    </p>
+  </div>
+</section>
+
+<!-- Content split -->
+<section class="py-16 transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+      
+      <!-- Copy details (Left Split) -->
+      <div class="lg:col-span-8 space-y-12">
+        
+        <!-- Challenge -->
+        <div class="space-y-4">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">The Operational Bottleneck</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ cs.challenge }}</p>
+        </div>
+
+        <!-- Solution -->
+        <div class="space-y-4 pt-4 border-t border-gray-150 dark:border-gray-850">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">The AI System Architecture</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ cs.solution }}</p>
+        </div>
+
+        <!-- Architecture -->
+        <div class="space-y-4 pt-4 border-t border-gray-150 dark:border-gray-850">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Technical Pipeline Summary</h3>
+          <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">{{ cs.architecture_summary }}</p>
+        </div>
+
+        <!-- Business Impact -->
+        <div class="space-y-6 pt-4 border-t border-gray-150 dark:border-gray-850">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white font-display">Operational Impact & Gains</h3>
+          <div class="grid grid-cols-1 gap-4">
+            {% for imp in cs.impact %}
+            <div class="flex items-start space-x-3 p-4 rounded-xl bg-blue-50/50 dark:bg-blue-950/20 border border-blue-200/50 dark:border-blue-900/40">
+              <div class="p-1 rounded bg-blue-500/10 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0">
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">{{ imp }}</p>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech Stack sidebar (Right Split) -->
+      <div class="lg:col-span-4 space-y-8">
+        
+        <!-- Profile Widget -->
+        <div class="glass-panel border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-4">
+          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider font-display">Operational Scope</h4>
+          <div>
+            <p class="text-xs text-gray-400">Client Profile</p>
+            <p class="text-sm font-bold text-gray-900 dark:text-white font-display mt-0.5">{{ cs.client }}</p>
+          </div>
+          <div>
+            <p class="text-xs text-gray-400">Validated Outcome</p>
+            <p class="text-sm font-bold text-blue-600 dark:text-blue-400 font-display mt-0.5">{{ cs.metric }}</p>
+          </div>
+        </div>
+
+        <!-- Tech Stack Widget -->
+        <div class="glass-panel border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-4">
+          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider font-display">Integration Stack</h4>
+          <div class="flex flex-wrap gap-2">
+            {% for tech in cs.tech_stack %}
+            <span class="text-xs font-semibold font-mono px-3 py-1 rounded bg-gray-100 dark:bg-gray-850 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-gray-800">{{ tech }}</span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <!-- Consultation Booking link -->
+        <div class="glass-panel border border-gray-200 dark:border-gray-800 rounded-2xl p-6 bg-white dark:bg-gray-950/60 space-y-3">
+          <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider font-display">Have a Similar Challenge?</h4>
+          <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+            Schedule a scoping call to review technical feasibility and design a custom AI workflow for your team.
+          </p>
+          <a href="/contact" class="block w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold text-center transition font-display uppercase tracking-wider">
+            Discuss Similar Workflow
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Block -->
+{% include 'components/cta.html' %}
+
+{% endblock %}

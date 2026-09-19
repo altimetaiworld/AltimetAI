@@ -1,0 +1,132 @@
+<!-- app/templates/components/hero.html -->
+<section class="relative min-h-[88vh] pt-36 pb-20 flex items-center overflow-hidden grid-bg-lines transition-colors duration-300">
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-center">
+      
+      <!-- Headline & Value Proposition (Left Split) -->
+      <div class="lg:col-span-7 text-left space-y-8">
+        
+        <!-- Category Badge -->
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-panel border border-gray-200 dark:border-gray-800 text-xs font-semibold text-gray-700 dark:text-gray-300 shadow-sm transition">
+          <span class="w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400"></span>
+          <span class="font-display tracking-wide uppercase text-[11px] text-gray-800 dark:text-gray-200">AI Transformation & Automation Consulting</span>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="hero-title text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] text-gray-900 dark:text-white font-display">
+          AI transformation, <br class="hidden sm:inline">
+          <span class="text-blue-600 dark:text-blue-400">built around your business.</span>
+        </h1>
+        
+        <!-- Subheadline -->
+        <p class="hero-desc text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed">
+          We help ambitious businesses identify where AI creates measurable operational impact — then design, build, and deploy the production-grade systems to make it happen.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-ctas flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+          <a href="/contact" class="magnetic-btn px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-center transition-colors shadow-md hover:shadow-blue-600/20 text-sm uppercase tracking-wider font-display">
+            Talk to an AI Consultant
+          </a>
+          <a href="/#solutions" class="magnetic-btn px-8 py-4 glass-panel border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg font-semibold text-center transition text-sm uppercase tracking-wider font-display">
+            Explore Solutions
+          </a>
+        </div>
+
+        <!-- Trust Signals / Operating Principles -->
+        <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 font-display">Focus</p>
+              <p class="text-sm font-bold text-gray-900 dark:text-white mt-1">Operational ROI</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Solve concrete business friction</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 font-display">Standard</p>
+              <p class="text-sm font-bold text-gray-900 dark:text-white mt-1">Production-Grade</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Hardened, secure, observable</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 font-display">Engagement</p>
+              <p class="text-sm font-bold text-gray-900 dark:text-white mt-1">Full-Lifecycle</p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Strategy to live deployment</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Transformation Framework Overview Card (Right Split) -->
+      <div class="lg:col-span-5 relative hero-dashboard">
+        <div class="glass-panel border border-gray-200 dark:border-gray-800 rounded-2xl p-6 sm:p-8 bg-white/80 dark:bg-gray-950/80 shadow-xl space-y-6">
+          
+          <div class="flex items-center justify-between border-b border-gray-150 dark:border-gray-850 pb-4">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 font-display">How We Partner</span>
+              <h3 class="text-base font-bold text-gray-900 dark:text-white font-display mt-0.5">The AI Transformation Method</h3>
+            </div>
+            <span class="px-2.5 py-1 rounded text-[11px] font-mono font-medium bg-gray-100 dark:bg-gray-850 text-gray-600 dark:text-gray-300">
+              End-to-End
+            </span>
+          </div>
+
+          <!-- 3 Transformation Pillars -->
+          <div class="space-y-4">
+            
+            <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-900/60 border border-gray-150 dark:border-gray-850 hover:border-blue-500/40 transition">
+              <div class="flex items-center space-x-3">
+                <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 font-display font-bold text-xs flex items-center justify-center flex-shrink-0">
+                  01
+                </span>
+                <h4 class="text-sm font-bold text-gray-900 dark:text-white font-display">
+                  Operational Discovery & Audit
+                </h4>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 pl-10 leading-relaxed">
+                We map your manual bottlenecks, evaluate data readiness, and quantify cost vs. return before writing any code.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-900/60 border border-gray-150 dark:border-gray-850 hover:border-blue-500/40 transition">
+              <div class="flex items-center space-x-3">
+                <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 font-display font-bold text-xs flex items-center justify-center flex-shrink-0">
+                  02
+                </span>
+                <h4 class="text-sm font-bold text-gray-900 dark:text-white font-display">
+                  System Architecture & Build
+                </h4>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 pl-10 leading-relaxed">
+                Custom engineering of AI Voice, Knowledge, or WhatsApp agents integrated directly into your CRM, database, and APIs.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-gray-50 dark:bg-gray-900/60 border border-gray-150 dark:border-gray-850 hover:border-blue-500/40 transition">
+              <div class="flex items-center space-x-3">
+                <span class="w-7 h-7 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 font-display font-bold text-xs flex items-center justify-center flex-shrink-0">
+                  03
+                </span>
+                <h4 class="text-sm font-bold text-gray-900 dark:text-white font-display">
+                  Deployment, Training & Scale
+                </h4>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 pl-10 leading-relaxed">
+                Rigorous testing, team workflow integration, continuous monitoring, and performance benchmarking.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Bottom card note -->
+          <div class="pt-2 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
+            <span>Average initial pilot rollout:</span>
+            <span class="font-semibold text-gray-900 dark:text-white font-display">3 to 6 Weeks</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

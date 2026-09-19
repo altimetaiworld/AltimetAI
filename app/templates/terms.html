@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="relative pt-32 pb-16 grid-bg-lines overflow-hidden transition-colors duration-300">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white font-display">
+      Terms of Service
+    </h1>
+    <p class="text-xs text-gray-500 mt-2 font-mono">Last updated: June 28, 2026</p>
+  </div>
+</section>
+
+<section class="py-12 transition-colors duration-300">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="glass-panel border-gray-200 dark:border-gray-800 rounded-2xl p-8 lg:p-12 bg-white dark:bg-gray-950/60 shadow-xl space-y-6 text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-sans">
+      
+      <h3 class="text-lg font-bold text-gray-900 dark:text-white font-display">1. Service Licensing and Code Ownership</h3>
+      <p>
+        Code structures, Python files, and configurations created under custom engineering consulting contracts represent proprietary deliverables. Upon final payment, full ownership and licensing rights to these source repositories are transferred to the client.
+      </p>
+
+      <h3 class="text-lg font-bold text-gray-900 dark:text-white font-display">2. Sandbox Boundaries and Indemnification</h3>
+      <p>
+        The client is solely responsible for verifying schema mappings and configuring query sandbox limits (such as database column masking and connection pools). Altimet AI is not liable for data leakage resulting from database credentials configuration errors.
+      </p>
+
+      <h3 class="text-lg font-bold text-gray-900 dark:text-white font-display">3. Acceptable Use of AI Systems</h3>
+      <p>
+        The client agrees not to utilize Altimet AI product suites or custom solutions to generate malicious files, circumvent legal boundaries, or violate federal or state regulations.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+{% endblock %}
